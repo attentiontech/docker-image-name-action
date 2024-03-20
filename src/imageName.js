@@ -8,9 +8,10 @@ const { context } = github
  * @returns {object} The generated docker image name and tag
  */
 function generateDockerImageName(baseName) {
+  const refName = process.env.GITHUB_HEAD_REF || context.ref
   // generate string from the current time in RFC3339 format without special characters
   const buildtime = new Date().toISOString().replace(/[-:.]/g, '-').slice(0, -5)
-  const tag = `${context.ref}-time-${buildtime}-commit-${context.sha}`.replace(
+  const tag = `${refName}-time-${buildtime}-commit-${context.sha}`.replace(
     /\//g,
     '-'
   )
