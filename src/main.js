@@ -10,10 +10,11 @@ async function run() {
     const baseName = core.getInput('baseName', { required: true })
     core.debug('baseName', baseName)
 
-    const imageName = generateDockerImageName(baseName)
+    const gen = generateDockerImageName(baseName)
 
     // Set outputs for other workflow steps to use
-    core.setOutput('imageName', imageName)
+    core.setOutput('imageName', gen.imageName)
+    core.setOutput('tag', gen.tag)
   } catch (error) {
     // Fail the workflow run if an error occurs
     core.setFailed(error.message)

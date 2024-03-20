@@ -28982,7 +28982,7 @@ const { context } = github
 /**
  * Generates a docker image
  * @param {string} baseName
- * @returns {string} The generated docker image name
+ * @returns {object} The generated docker image name and tag
  */
 function generateDockerImageName(baseName) {
   // generate string from the current time in RFC3339 format without special characters
@@ -28992,7 +28992,10 @@ function generateDockerImageName(baseName) {
     '-'
   )
   const imageName = `${baseName}:${tag}`
-  return imageName
+  return {
+    imageName,
+    tag
+  }
 }
 
 module.exports = { generateDockerImageName }
@@ -29015,10 +29018,11 @@ async function run() {
     const baseName = core.getInput('baseName', { required: true })
     core.debug('baseName', baseName)
 
-    const imageName = generateDockerImageName(baseName)
+    const gen = generateDockerImageName(baseName)
 
     // Set outputs for other workflow steps to use
-    core.setOutput('imageName', imageName)
+    core.setOutput('imageName', gen.imageName)
+    core.setOutput('tag', gen.tag)
   } catch (error) {
     // Fail the workflow run if an error occurs
     core.setFailed(error.message)

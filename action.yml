@@ -12,6 +12,8 @@ inputs:
 outputs:
   imageName:
     description: 'the docker image with generated tag'
+  tag:
+    description: 'generated tag'
 
 runs:
   using: node20

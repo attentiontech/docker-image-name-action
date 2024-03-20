@@ -59,6 +59,7 @@ jobs:
         with:
           baseName: myregistry/myimage
 
-      - name: Print Output
-        id: output
+      - name: 'Print Output: imageName'
         run: echo "${{ steps.test-action.outputs.imageName }}"
+      - name: 'Print Output: tag'
+        run: echo "${{ steps.test-action.outputs.tag }}"

@@ -5,7 +5,7 @@ const { context } = github
 /**
  * Generates a docker image
  * @param {string} baseName
- * @returns {string} The generated docker image name
+ * @returns {object} The generated docker image name and tag
  */
 function generateDockerImageName(baseName) {
   // generate string from the current time in RFC3339 format without special characters
@@ -15,7 +15,10 @@ function generateDockerImageName(baseName) {
     '-'
   )
   const imageName = `${baseName}:${tag}`
-  return imageName
+  return {
+    imageName,
+    tag
+  }
 }
 
 module.exports = { generateDockerImageName }
