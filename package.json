@@ -4,13 +4,13 @@
   "version": "1.0.0",
   "author": "",
   "private": true,
-  "homepage": "https://github.com/actions/javascript-action#readme",
+  "homepage": "https://github.com/attentiontech/docker-image-name-action#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/javascript-action.git"
+    "url": "git+https://github.com/attentiontech/docker-image-name-action.git"
   },
   "bugs": {
-    "url": "https://github.com/actions/javascript-action/issues"
+    "url": "https://github.com/attentiontech/docker-image-name-action/issues"
   },
   "keywords": [
     "GitHub",
