@@ -4,15 +4,14 @@ author: 'Your name or organization here'
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
+  baseName:
+    description: 'the name of the docker image (without tag or :latest)'
     required: true
-    default: '1000'
 
 # Define your outputs here.
 outputs:
   time:
-    description: 'Your output description here'
+    imageName: 'the docker image with generated tag'
 
 runs:
   using: node20
