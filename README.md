@@ -7,7 +7,7 @@ Generates Unique Docker Images per Pull Request
 
 ## Usage
 
-```
+```yaml
 name: Build Docker Image
 
 on:
@@ -20,14 +20,9 @@ on:
 
 jobs:
   unique-image-name:
-    name: GitHub Actions Test
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        id: checkout
-        uses: actions/checkout@v4
-
       - name: Generate Docker Image Name
         id: unique-image-name
         uses: attentiontech/docker-image-name-action@v1
