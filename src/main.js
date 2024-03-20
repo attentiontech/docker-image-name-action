@@ -8,9 +8,9 @@ const { generateDockerImageName } = require('./imageName')
 async function run() {
   try {
     const baseName = core.getInput('baseName', { required: true })
-    core.debug("baseName", baseName);
+    core.debug('baseName', baseName)
 
-    const imageName = generateDockerImageName(baseName);
+    const imageName = generateDockerImageName(baseName)
 
     // Set outputs for other workflow steps to use
     core.setOutput('imageName', imageName)
