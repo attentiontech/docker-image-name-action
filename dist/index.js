@@ -28981,7 +28981,6 @@ __nccwpck_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_github__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nccwpck_require__.n(_actions_github__WEBPACK_IMPORTED_MODULE_0__);
 /* module decorator */ module = __nccwpck_require__.hmd(module);
 
-const context = (_actions_github__WEBPACK_IMPORTED_MODULE_0___default().context)
 
 /**
  * Generates a docker image
@@ -28991,7 +28990,7 @@ const context = (_actions_github__WEBPACK_IMPORTED_MODULE_0___default().context)
 function generateDockerImageName(baseName) {
   // generate string from the current time in RFC3339 format without special characters
   const buildtime = new Date().toISOString().replace(/-:/g, '-')
-  const tag = `${context.ref}-time-${buildtime}-commit-${context.sha}`.replace(
+  const tag = `${_actions_github__WEBPACK_IMPORTED_MODULE_0__.context.ref}-time-${buildtime}-commit-${_actions_github__WEBPACK_IMPORTED_MODULE_0__.context.sha}`.replace(
     /\//g,
     '-'
   )

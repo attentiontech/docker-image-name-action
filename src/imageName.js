@@ -1,5 +1,4 @@
-import github from '@actions/github'
-const context = github.context
+import { context } from '@actions/github'
 
 /**
  * Generates a docker image
