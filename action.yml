@@ -10,8 +10,8 @@ inputs:
 
 # Define your outputs here.
 outputs:
-  time:
-    imageName: 'the docker image with generated tag'
+  imageName:
+    description: 'the docker image with generated tag'
 
 runs:
   using: node20
