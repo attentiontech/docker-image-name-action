@@ -1,14 +1,13 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'docker-image-name-action'
+description:
+  'Generate a docker image name for the current pull request or branch'
+author: 'attention.tech'
 
-# Define your inputs here.
 inputs:
   baseName:
     description: 'the name of the docker image (without tag or :latest)'
     required: true
 
-# Define your outputs here.
 outputs:
   imageName:
     description: 'the docker image with generated tag'
