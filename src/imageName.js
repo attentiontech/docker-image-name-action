@@ -1,4 +1,6 @@
-import { context } from '@actions/github'
+const github = require('@actions/github')
+
+const { context } = github
 
 /**
  * Generates a docker image
