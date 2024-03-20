@@ -1,5 +1,5 @@
 const core = require('@actions/core')
-const { wait } = require('./wait')
+const { generateDockerImageName } = require('./imageName')
 
 /**
  * The main function for the action.
@@ -7,18 +7,13 @@ const { wait } = require('./wait')
  */
 async function run() {
   try {
-    const ms = core.getInput('milliseconds', { required: true })
+    const baseName = core.getInput('baseName', { required: true })
+    core.debug("baseName", baseName);
 
-    // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
-    core.debug(`Waiting ${ms} milliseconds ...`)
-
-    // Log the current timestamp, wait, then log the new timestamp
-    core.debug(new Date().toTimeString())
-    await wait(parseInt(ms, 10))
-    core.debug(new Date().toTimeString())
+    const imageName = generateDockerImageName(baseName);
 
     // Set outputs for other workflow steps to use
-    core.setOutput('time', new Date().toTimeString())
+    core.setOutput('imageName', imageName)
   } catch (error) {
     // Fail the workflow run if an error occurs
     core.setFailed(error.message)

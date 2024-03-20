@@ -57,7 +57,7 @@ jobs:
         id: test-action
         uses: ./
         with:
-          milliseconds: 1000
+          imageName: myregistry/myimage
 
       - name: Print Output
         id: output
