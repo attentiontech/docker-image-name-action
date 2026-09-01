@@ -1,0 +1,19 @@
+# zizmor configuration, used by super-linter's GITHUB_ACTIONS_ZIZMOR linter.
+#
+# unpinned-uses: as of zizmor v1.20.0 the default policy requires every
+# action to be pinned to a full commit SHA. This repository only consumes
+# actions from GitHub's own `actions` and `github` organizations and from
+# super-linter, all of which are tag-pinned today and tracked by Dependabot
+# (see .github/dependabot.yml). Allowing symbolic (tag) references for those
+# three owners restores zizmor's own pre-v1.20.0 default behavior.
+#
+# Any owner not listed below falls back to zizmor's implicit '*': hash-pin
+# rule, so a new third-party action must be pinned to a SHA or this audit
+# fails the build. Tighten an entry to `hash-pin` to require SHAs again.
+rules:
+  unpinned-uses:
+    config:
+      policies:
+        'actions/*': ref-pin
+        'github/*': ref-pin
+        'super-linter/super-linter/*': ref-pin
