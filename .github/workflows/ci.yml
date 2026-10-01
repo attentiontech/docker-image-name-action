@@ -20,6 +20,8 @@ jobs:
       - name: Checkout
         id: checkout
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Setup Node.js
         id: setup-node
@@ -52,6 +54,8 @@ jobs:
       - name: Checkout
         id: checkout
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Test Local Action
         id: test-action
@@ -60,6 +64,10 @@ jobs:
           baseName: myregistry/myimage
 
       - name: 'Print Output: imageName'
-        run: echo "${{ steps.test-action.outputs.imageName }}"
+        env:
+          IMAGE_NAME: ${{ steps.test-action.outputs.imageName }}
+        run: echo "$IMAGE_NAME"
       - name: 'Print Output: tag'
-        run: echo "${{ steps.test-action.outputs.tag }}"
+        env:
+          TAG: ${{ steps.test-action.outputs.tag }}
+        run: echo "$TAG"
